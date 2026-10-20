@@ -1,8 +1,9 @@
 <?php
+require_once '../config.php';
 $pageTitle = 'Info | Nieuws App';
 $activePage = 'info';
 
-require_once ROOT_PATH . 'includes/header.php';
+require_once ROOT_PATH . './includes/header.php';
 ?>
 <div class="container">
 	<div class="row justify-content-center">
