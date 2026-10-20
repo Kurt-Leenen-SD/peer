@@ -6,7 +6,7 @@ $activePage = 'home';
 
 require_once ROOT_PATH . 'includes/MessageController.php';
 
-$messageController = new MessageController();
+$messageController = new \MessageController();
 $messages = $messageController->getLatestMessages();
 
 require_once ROOT_PATH . 'includes/header.php';
@@ -29,21 +29,21 @@ require_once ROOT_PATH . 'includes/header.php';
                     <div class="card h-100 shadow-sm border-0">
                         <div class="card-body d-flex flex-column">
                             <h2 class="card-title h5 rainbow-box">
-                                <?= htmlspecialchars($message['title'], ENT_QUOTES, 'UTF-8'); ?>
+                                <?= htmlspecialchars($messages['title'], ENT_QUOTES, 'UTF-8'); ?>
                             </h2>
 
-                            <?php if ($message['publishedAt'] !== ''): ?>
+                            <?php if ($messages['publishedAt'] !== ''): ?>
                                 <p class="card-subtitle mb-3 text-body-secondary small">
-                                    <?= htmlspecialchars($message['publishedAt'], ENT_QUOTES, 'UTF-8'); ?>
+                                    <?= htmlspecialchars($messages['publishedAt'], ENT_QUOTES, 'UTF-8'); ?>
                                 </p>
                             <?php endif; ?>
 
                             <p class="card-text flex-grow-1">
-                                <?= htmlspecialchars($message['description'], ENT_QUOTES, 'UTF-8'); ?>
+                                <?= htmlspecialchars($messages['description'], ENT_QUOTES, 'UTF-8'); ?>
                             </p>
 
                             <a class="btn btn-primary mt-3 rainbow-box"
-                               href="<?= htmlspecialchars($message['link'], ENT_QUOTES, 'UTF-8'); ?>"
+                               href="<?= htmlspecialchars($messages['link'], ENT_QUOTES, 'UTF-8'); ?>"
                                target="_blank">
                                 Lees meer
                             </a>
