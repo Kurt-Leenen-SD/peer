@@ -1,5 +1,5 @@
 <?php
-require_once '../config.php';
+require_once '../config.php'; // deze ontbrak
 $pageTitle = 'Info | Nieuws App';
 $activePage = 'info';
 
