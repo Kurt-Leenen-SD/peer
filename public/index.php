@@ -6,7 +6,7 @@ $activePage = 'home';
 
 require_once ROOT_PATH . 'includes/MessageController.php';
 
-$messageController = new MessageController();
+$messageController = new \MessageController();
 $messages = $messageController->getLatestMessages();
 
 require_once ROOT_PATH . 'includes/header.php';
@@ -24,26 +24,27 @@ require_once ROOT_PATH . 'includes/header.php';
         </div>
 
         <div class="row g-4">
-            <?php for ($i = 0; $i < 5; $i++): ?>
+            <?php for ($i = 0; $i < 5; $i++): ?> // $i werdt 5 keer aangemaakt maar nooit gebruikt 
                 <div class="col-12 col-md-6 col-xl-4">
                     <div class="card h-100 shadow-sm border-0">
                         <div class="card-body d-flex flex-column">
                             <h2 class="card-title h5 rainbow-box">
-                                <?= htmlspecialchars($message['title'], ENT_QUOTES, 'UTF-8'); ?>
+                                <?= htmlspecialchars($messages[$i]['title'], ENT_QUOTES, 'UTF-8'); ?>
                             </h2>
 
-                            <?php if ($message['publishedAt'] !== ''): ?>
+                            <?php if ($messages[$i]['publishedAt'] !== ''): ?>
                                 <p class="card-subtitle mb-3 text-body-secondary small">
-                                    <?= htmlspecialchars($message['publishedAt'], ENT_QUOTES, 'UTF-8'); ?>
+                                    <?= htmlspecialchars($messages[$i]['publishedAt'], ENT_QUOTES, 'UTF-8');?> //[$i] toegevoegd
                                 </p>
                             <?php endif; ?>
 
                             <p class="card-text flex-grow-1">
-                                <?= htmlspecialchars($message['description'], ENT_QUOTES, 'UTF-8'); ?>
+                                <?= htmlspecialchars($messages[$i]['description'], ENT_QUOTES, 'UTF-8'); ?>
                             </p>
 
+                            <!-- deze button werkt gewoon -->
                             <a class="btn btn-primary mt-3 rainbow-box"
-                               href="<?= htmlspecialchars($message['link'], ENT_QUOTES, 'UTF-8'); ?>"
+                               href="<?= htmlspecialchars($messages[$i]['link'], ENT_QUOTES, 'UTF-8'); ?>"
                                target="_blank">
                                 Lees meer
                             </a>
